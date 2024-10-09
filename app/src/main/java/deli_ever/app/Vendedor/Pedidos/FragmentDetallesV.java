@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,10 +49,8 @@ public class FragmentDetallesV extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Retrieve the PedidoClase object from the arguments
-        if (getArguments() != null) {
-            pedidoV = (PedidoClase) getArguments().getSerializable("pedido");
-        }
+        pedidoV = (PedidoClase) requireActivity().getIntent().getSerializableExtra("pedido");
+        assert pedidoV != null;
     }
 
     @Override
@@ -167,23 +166,33 @@ public class FragmentDetallesV extends Fragment {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     public void aprobar_descuento() {
-        try {
-            double monto = Double.parseDouble(pedidoV.getMontoSinDescuento());
-            double descuentoD = Double.parseDouble(txt_descuento.getText().toString());
-            precioTotal = monto - descuentoD;
-            precioTotal2 = String.valueOf(precioTotal);
-            precioTotalString = String.format("$ %.2f", precioTotal);
-            txt_precioTotal.setText(precioTotalString);
-            txt_descuento.setText("- $" + descuentoD);
-            txt_descuento.setTextColor(getResources().getColor(R.color.green));
+        if (pedidoV != null) {
+            try {
+                double monto = Double.parseDouble(pedidoV.getMontoSinDescuento());
+                double descuentoD = Double.parseDouble(txt_descuento.getText().toString());
+                precioTotal = monto - descuentoD;
+                precioTotal2 = String.valueOf(precioTotal);
+                precioTotalString = String.format("$ %.2f", precioTotal);
+                txt_precioTotal.setText(precioTotalString);
+                txt_descuento.setText("- $" + descuentoD);
+                txt_descuento.setTextColor(getResources().getColor(R.color.green));
+                txt_descuento.setEnabled(false);
+                layout_btn_descuento.setVisibility(View.GONE);
+                actualizar_pedido(String.valueOf(descuentoD));
+            } catch (NumberFormatException e) {
+                txt_descuento.setError("Ingrese un descuento válido");
+            }
+        } else {
+            // Manejar el caso cuando pedidoV es null
+            Log.e("FragmentDetallesV", "Error: pedidoV es null");
+            txt_precioTotal.setText("Error al obtener los datos del pedido");
             txt_descuento.setEnabled(false);
             layout_btn_descuento.setVisibility(View.GONE);
-            actualizar_pedido(String.valueOf(descuentoD));
-        } catch (NumberFormatException e) {
-            txt_descuento.setError("Ingrese un descuento válido");
         }
     }
+
 
     public void actualizar_pedido(String descuento) {
         if (pedidoV != null) {

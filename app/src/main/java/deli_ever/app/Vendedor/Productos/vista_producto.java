@@ -30,6 +30,7 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -364,7 +365,7 @@ public class vista_producto extends AppCompatActivity {
                                     }
                                 });
 
-                                Toast.makeText(vista_producto.this, "Pedido realizado con éxito", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(vista_producto.this, "Pedido realizado con éxito solo tienes un minuto para cancelar el pedido", Toast.LENGTH_SHORT).show();
                                 bottomSheetDialog.dismiss();
 
                                 userRef.addListenerForSingleValueEvent(new ValueEventListener() {

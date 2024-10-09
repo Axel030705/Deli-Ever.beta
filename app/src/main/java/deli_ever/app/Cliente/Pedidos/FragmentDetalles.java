@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import deli_ever.app.Cliente.Tiendas_Activity;
 import deli_ever.app.R;
 import deli_ever.app.Todos.Chat.MainActivityChat;
 import deli_ever.app.Todos.Pedidos.PedidoClase;
@@ -38,6 +40,7 @@ public class FragmentDetalles extends Fragment {
     private ImageView ImgEstado;
     private TextView TextoEstado, txt_productos, txt_precio, txt_descuento, txt_envio, txt_precioTotal, txt_direccion, TextoInfo;
     private LinearLayout LayoutMsj, LayoutUbicacion;
+    private Button btn_cancelarPedido;
     //Variables
     private String idUsr;
     //Firebase
@@ -78,6 +81,7 @@ public class FragmentDetalles extends Fragment {
         LayoutMsj = view.findViewById(R.id.LayoutMsj);
         LayoutUbicacion = view.findViewById(R.id.LayoutUbicacion);
         TextoInfo = view.findViewById(R.id.TextoInfo);
+        btn_cancelarPedido = view.findViewById(R.id.btn_cancelarPedido);
 
         //Firebase
         // Referencia al nodo del usuario
@@ -186,6 +190,56 @@ public class FragmentDetalles extends Fragment {
             if (pedido.getEstado().equals("Pendiente")) {
                 TextoEstado.setText("Tu pedido está esperando a ser aceptado por la tienda");
                 ImgEstado.setImageResource(R.drawable.svg1);
+                btn_cancelarPedido.setVisibility(View.VISIBLE);
+
+                // 1 minuto de cancelación
+                new CountDownTimer(60000, 1000) {
+                    @SuppressLint("SetTextI18n")
+                    public void onTick(long millisUntilFinished) {
+                        long secondsRemaining = millisUntilFinished / 1000;
+                        btn_cancelarPedido.setText("Cancelar pedido (" + secondsRemaining + "s)");
+                    }
+
+                    public void onFinish() {
+                        btn_cancelarPedido.setText("Tiempo de cancelación expirado");
+                        btn_cancelarPedido.setEnabled(false);
+                        btn_cancelarPedido.setVisibility(View.GONE);
+                    }
+                }.start();
+
+                // Handle the cancel button click
+                btn_cancelarPedido.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        // Referencias necesarias
+                        DatabaseReference pedidoRef = usuarioRef.child("Pedidos").child(pedido.getIdPedido());
+                        DatabaseReference tiendaPedidoRef = FirebaseDatabase.getInstance()
+                                .getReference("Tienda")
+                                .child(pedido.getIdTienda())  // Nodo de la tienda
+                                .child("Pedidos")
+                                .child(pedido.getIdPedido()); // Nodo del pedido dentro de la tienda
+
+                        // Eliminar el pedido del nodo principal 'Pedidos'
+                        pedidoRef.removeValue().addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                // Eliminar el pedido del nodo 'Tienda'
+                                tiendaPedidoRef.removeValue().addOnCompleteListener(task2 -> {
+                                    if (task2.isSuccessful()) {
+                                        Toast.makeText(requireContext(), "Pedido cancelado con éxito", Toast.LENGTH_SHORT).show();
+                                        // Redirigir a Tiendas_Activity.java
+                                        Intent intent = new Intent(requireActivity(), Tiendas_Activity.class);
+                                        startActivity(intent);
+                                        requireActivity().finish();
+                                    } else {
+                                        Toast.makeText(requireContext(), "Error al cancelar el pedido en la tienda", Toast.LENGTH_SHORT).show();
+                                    }
+                                });
+                            } else {
+                                Toast.makeText(requireContext(), "Error al cancelar el pedido principal", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+                });
             } else if (pedido.getEstado().equals("Preparando")) {
                 TextoEstado.setText("Tu pedido está en preparación");
                 ImgEstado.setImageResource(R.drawable.svg2);
@@ -198,7 +252,7 @@ public class FragmentDetalles extends Fragment {
                 TextoInfo.setText("Para cualquier duda o aclaración no ovides ponerte en contacto con el vendedor");
 
                 //Validar si el producto ya se califico
-                if (pedido.getCalificado().equals("No")) {
+                if (pedido.getCalificado().equals("No") && pedido.getEstado().equals("Finalizado")) {
                     mostrarFinalizadoDialog(getView(), pedido.getIdPedido());
                 }
 
