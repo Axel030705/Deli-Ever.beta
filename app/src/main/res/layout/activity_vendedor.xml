@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Vendedor.Activity_Vendedor">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Registrar tienda (Negocio)"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            tools:ignore="HardcodedText" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ImagenTienda"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/icono_agregar_imagen"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColorHint="@color/black">
+
+            <EditText
+                android:id="@+id/txt_NombreTienda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/tienda"
+                android:drawablePadding="10dp"
+                android:hint="Nombre de la tienda (negocio)"
+                android:inputType="textPersonName"
+                android:padding="20dp"
+                tools:ignore="HardcodedText" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColorHint="@color/black">
+
+            <EditText
+                android:id="@+id/txt_DescripcionTienda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/descripcion"
+                android:drawablePadding="10dp"
+                android:hint="Descripción"
+                android:inputType="textPersonName"
+                android:padding="20dp"
+                tools:ignore="HardcodedText" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColorHint="@color/black">
+
+            <EditText
+                android:id="@+id/txt_DireccionTienda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/direccion"
+                android:drawablePadding="10dp"
+                android:hint="Direccion (opcional)"
+                android:inputType="textPersonName"
+                android:padding="20dp"
+                tools:ignore="HardcodedText" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColorHint="@color/black">
+
+            <EditText
+                android:id="@+id/txt_ExtraTienda"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/extra"
+                android:drawablePadding="10dp"
+                android:hint="Cosa extra por agregar (opcional)"
+                android:inputType="textPersonName"
+                android:padding="20dp"
+                tools:ignore="HardcodedText" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+       <!-- <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/borde_bkg"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Seleccione el estado de la tienda:"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:layout_marginBottom="8dp"
+                tools:ignore="HardcodedText" />
+
+            <RadioGroup
+                android:id="@+id/radioGroupEstado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioButtonCerrado"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cerrado"
+                    tools:ignore="HardcodedText" />
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/radioButtonAbierto"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Abierto"
+                    tools:ignore="HardcodedText" />
+
+            </RadioGroup>
+        </LinearLayout> !-->
+
+
+        <Button
+            android:id="@+id/Btn_RegistrarTienda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Registrar tienda"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+</ScrollView>

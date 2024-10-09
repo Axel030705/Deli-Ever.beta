@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Vendedor.Productos.editar_producto_form">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Editar Producto"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            tools:ignore="HardcodedText" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ImagenProductoEdit"
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:src="@drawable/icono_agregar_imagen"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColorHint="@color/black">
+
+            <EditText
+                android:id="@+id/txt_NombreProductoEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/tienda"
+                android:drawablePadding="10dp"
+                android:hint="Nombre del producto"
+                android:inputType="textPersonName"
+                android:padding="20dp"
+                tools:ignore="HardcodedText" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColorHint="@color/black">
+
+            <EditText
+                android:id="@+id/txt_DescripcionProductoEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/descripcion"
+                android:drawablePadding="10dp"
+                android:hint="Descripción del producto"
+                android:inputType="textPersonName"
+                android:padding="20dp"
+                tools:ignore="HardcodedText" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColorHint="@color/black">
+
+            <EditText
+                android:id="@+id/txt_PrecioProductoEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/dolar"
+                android:drawablePadding="10dp"
+                android:hint="Precio del producto"
+                android:inputType="textPersonName"
+                android:padding="20dp"
+                tools:ignore="HardcodedText" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColorHint="@color/black">
+
+            <EditText
+                android:id="@+id/txt_ExtraProductoEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/extra"
+                android:drawablePadding="10dp"
+                android:hint="Cosa extra por agregar (opcional)"
+                android:inputType="textPersonName"
+                android:padding="20dp"
+                tools:ignore="HardcodedText" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColorHint="@color/black">
+
+            <EditText
+                android:id="@+id/txt_CantidadProductoEdit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/extra"
+                android:drawablePadding="10dp"
+                android:hint="Cantidad de producto disponible"
+                android:inputType="textPersonName"
+                android:padding="20dp"
+                tools:ignore="Autofill,HardcodedText" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/Btn_GuardarCambios_EP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Guardar Cambios"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/Btn_Salir_EP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Regresar"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+</ScrollView>

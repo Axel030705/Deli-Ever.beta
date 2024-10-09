@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Cliente.SplashScreen"
+    android:screenOrientation="portrait"
+    android:background="@color/white">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!--<com.airbnb.lottie.LottieAnimationView
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_fileName="Calendario.json"
+            app:lottie_loop="true"
+            app:lottie_autoPlay="true">
+        </com.airbnb.lottie.LottieAnimationView> -->
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/LogoAnimation"
+            android:layout_width="500dp"
+            android:layout_height="500dp"
+            android:background="@color/white"/>
+
+        <!--<pl.droidsonroids.gif.GifImageView
+            android:id="@+id/bp"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:background="@color/white"
+            android:layout_margin="70dp"/> -->
+
+        <!-- <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="30sp"
+            android:layout_marginTop="15dp">
+        </TextView> -->
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>

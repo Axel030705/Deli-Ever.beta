@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardViewProducto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_margin="18dp"
+    android:padding="8dp"
+    app:strokeColor="@color/azulCielo"
+    app:strokeWidth="2dp"
+    app:cardBackgroundColor="@color/white">
+
+    <TextView
+        android:id="@+id/TXTView_NombreProducto"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="25dp"
+        android:text="Nombre del producto"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/TXTView_DescripcionProducto"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="55dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:maxLines="1" />
+
+    <TextView
+        android:id="@+id/TXTView_PrecioProducto"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="85dp"
+        android:text="Precio"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/TXTView_ExtraProducto"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="115dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:maxLines="1"/>
+
+    <LinearLayout
+        android:id="@+id/LayoutPuntaje"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="145dp">
+
+        <ImageView
+            android:id="@+id/estrella1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/estrella"/>
+
+        <View
+            android:layout_width="7dp"
+            android:layout_height="25dp"/>
+
+        <ImageView
+            android:id="@+id/estrella2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/estrella"/>
+
+        <View
+            android:layout_width="7dp"
+            android:layout_height="25dp"/>
+
+        <ImageView
+            android:id="@+id/estrella3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/estrella"/>
+
+        <View
+            android:layout_width="7dp"
+            android:layout_height="25dp"/>
+
+        <ImageView
+            android:id="@+id/estrella4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/estrella"/>
+
+        <View
+            android:layout_width="7dp"
+            android:layout_height="25dp"/>
+
+        <ImageView
+            android:id="@+id/estrella5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/estrella"/>
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="110dp"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/ImagenProductoItem"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center_vertical"
+            android:adjustViewBounds="false"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

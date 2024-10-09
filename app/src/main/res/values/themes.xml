@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.DeliEver" parent="Theme.Material3.Light.NoActionBar">
+
+        <item name="colorPrimary">@color/azulCielo</item>
+        <item name="colorPrimaryDark">@color/azulCielo</item>
+
+    </style>
+
+    <style name="Theme.DeliEver" parent="Base.Theme.DeliEver" />
+
+</resources>

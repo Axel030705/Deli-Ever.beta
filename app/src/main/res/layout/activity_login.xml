@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context="Cliente.Login">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="Iniciar Sesión"
+            android:textColor="#000000"
+            android:textSize="25sp"
+            tools:ignore="HardcodedText" />
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="UserLogin.json"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_loop="false"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/azulCielo"
+            app:hintTextColor="@color/azulCielo">
+
+            <EditText
+                android:id="@+id/txt_CorreoLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/icono_correo"
+                android:drawablePadding="10dp"
+                android:hint="Correo"
+                android:inputType="textEmailAddress"
+                android:padding="20dp"
+                tools:ignore="Autofill,HardcodedText" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColorHint="@color/black"
+            app:boxStrokeColor="@color/azulCielo"
+            app:hintTextColor="@color/azulCielo"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/txt_PasswordLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/icono_candado"
+                android:drawablePadding="10dp"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:padding="20dp"
+                tools:ignore="Autofill,HardcodedText" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/Btn_Login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/azulCielo"
+            android:text="Iniciar Sesión"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/UsuarioNuevoTXT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="¿No tienes una cuenta?. Registrate"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:layout_margin="18dp"
+    android:padding="8dp"
+    app:cardCornerRadius="25dp"
+    app:strokeColor="@color/azulCielo"
+    app:strokeWidth="2dp"
+    app:cardBackgroundColor="@color/white">
+
+    <ImageView
+        android:id="@+id/ImagenTienda"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:layout_gravity="center_vertical"
+        android:layout_margin="15dp" />
+
+    <TextView
+        android:id="@+id/TXTView_NombreTienda"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="20dp"
+        android:text="Nombre de la tienda"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/TXTView_DescripcionTienda"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:text="Descripcion"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText"
+        android:maxLines="1"/>
+
+    <TextView
+        android:id="@+id/TXTView_DireccionTienda"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="80dp"
+        android:text="Dirección"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:maxLines="1"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/TXTView_ExtraTienda"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="110dp"
+        android:text="Extra"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        tools:ignore="HardcodedText"/>
+
+    <LinearLayout
+        android:id="@+id/TXTView_EstadoTienda"
+        android:layout_width="395dp"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cerrado"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="50dp"
+            android:rotation="-45"
+            android:textColor="@color/black"
+            tools:ignore="HardcodedText" />
+
+
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

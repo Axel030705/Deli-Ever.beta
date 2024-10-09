@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/finalizado_constraint"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/layoutDialog"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_bkg"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <!--<com.airbnb.lottie.LottieAnimationView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            app:lottie_autoPlay="true"
+            app:lottie_fileName="sucess.json"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_loop="false" />-->
+
+        <ImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/sucess"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Finalizado"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="¿Qué te pareció tu producto?"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/txt_nameProducto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Nombre del producto"
+            android:textColor="#ACACAC"
+            android:textSize="12sp"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:id="@+id/LayoutPuntaje"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/estrella1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/estrella_dialog" />
+
+            <View
+                android:layout_width="7dp"
+                android:layout_height="25dp" />
+
+            <ImageView
+                android:id="@+id/estrella2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/estrella_dialog" />
+
+            <View
+                android:layout_width="7dp"
+                android:layout_height="25dp" />
+
+            <ImageView
+                android:id="@+id/estrella3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/estrella_dialog" />
+
+            <View
+                android:layout_width="7dp"
+                android:layout_height="25dp" />
+
+            <ImageView
+                android:id="@+id/estrella4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/estrella_dialog" />
+
+            <View
+                android:layout_width="7dp"
+                android:layout_height="25dp" />
+
+            <ImageView
+                android:id="@+id/estrella5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/estrella_dialog" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_btn_hecho"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btn_hecho"
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:text="Hecho"
+                android:background="@drawable/custom_bkg_botones"
+                tools:ignore="HardcodedText" />
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

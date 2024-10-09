@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="Chat.MainActivityChat"
+    android:padding="5dp"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <!--<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/fotoPerfil"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/icono_persona"
+            app:civ_border_color="@color/azulCielo"
+            app:civ_border_width="2dp">
+        </de.hdodenhof.circleimageview.CircleImageView>
+
+        <TextView
+            android:id="@+id/nombreUsr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nombre de usuario"
+            android:layout_gravity="center"
+            tools:ignore="HardcodedText" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="50dp"
+            android:gravity="end">
+
+            <Button
+                android:id="@+id/Btn_menu_chat"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@drawable/icono_puntos"
+                android:layout_gravity="center_vertical"/>
+
+        </LinearLayout>
+
+    </LinearLayout>-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMensajes"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="20dp">
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <!--<ImageButton
+            android:id="@+id/btnEmoji"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_emoji"
+            android:layout_marginStart="5dp"
+            android:contentDescription="Emoji Button"/>-->
+
+        <ImageButton
+            android:id="@+id/BtnEnviarFoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/ic_menu_gallery"
+            android:layout_marginStart="5dp"
+            android:layout_gravity="center"
+            tools:ignore="ContentDescription">
+        </ImageButton>
+
+        <EditText
+            android:id="@+id/txt_Mensaje"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Mensaje"
+            tools:ignore="HardcodedText,InefficientWeight"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1">
+        </EditText>
+
+        <Button
+            android:id="@+id/BtnEnviar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar"
+            android:textColor="@color/white"
+            tools:ignore="HardcodedText">
+
+        </Button>
+
+    </LinearLayout>
+
+
+</LinearLayout>

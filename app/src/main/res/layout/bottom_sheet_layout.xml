@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="15dp"
+    tools:context="Vendedor.Productos.vista_producto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:orientation="horizontal"
+        android:layout_marginBottom="20dp">
+
+        <ImageView
+            android:id="@+id/imgProducto2"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:src="@android:drawable/ic_menu_gallery"
+            tools:ignore="ContentDescription"
+            android:scaleType="fitCenter"
+            android:adjustViewBounds="false"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textNombreProducto2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Nombre"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        tools:ignore="ContentDescription,HardcodedText" />
+
+    <TextView
+        android:id="@+id/textPrecioProducto2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Precio"
+        android:textSize="17sp"
+        android:layout_gravity="center"
+        tools:ignore="ContentDescription,HardcodedText" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextInput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:hintEnabled="true"
+        android:hint="Cantidad"
+        android:textColorHint="@color/black"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+        tools:ignore="HardcodedText">
+
+        <AutoCompleteTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cantidad2"
+            android:inputType="none"
+            tools:ignore="LabelFor">
+        </AutoCompleteTextView>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="16dp">
+
+        <EditText
+            android:id="@+id/txt_ubicacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/direccion"
+            android:drawablePadding="10dp"
+            android:hint="Ubicación"
+            android:inputType="textPersonName"
+            android:padding="20dp"
+            tools:ignore="HardcodedText" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="16dp">
+
+        <EditText
+            android:id="@+id/txt_referencias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/referencia"
+            android:drawablePadding="10dp"
+            android:hint="Referencias de la ubicacíon"
+            android:inputType="textPersonName"
+            android:padding="20dp"
+            tools:ignore="HardcodedText" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/black"
+        android:layout_marginTop="16dp">
+
+        <EditText
+            android:id="@+id/txt_propina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/dolar"
+            android:drawablePadding="10dp"
+            android:hint="Propina (opcional)"
+            android:inputType="textPersonName"
+            android:padding="20dp"
+            tools:ignore="HardcodedText" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/Btn_finalizarProducto2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="20dp"
+        android:text="Comprar"
+        android:textSize="18sp"
+        android:layout_gravity="center"
+        tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+</ScrollView>
+
+

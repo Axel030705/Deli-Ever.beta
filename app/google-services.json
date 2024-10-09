@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "867324946309",
+    "firebase_url": "https://deli-ever-ee94d-default-rtdb.firebaseio.com",
+    "project_id": "deli-ever-ee94d",
+    "storage_bucket": "deli-ever-ee94d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867324946309:android:9a57a7602d96b9638a06ec",
+        "android_client_info": {
+          "package_name": "com.example.agenda"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjzXryOKaYcmEazQy5bIKQkEZCuG_k4GQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867324946309:android:3d7992e7b93c490b8a06ec",
+        "android_client_info": {
+          "package_name": "deli_ever.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjzXryOKaYcmEazQy5bIKQkEZCuG_k4GQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

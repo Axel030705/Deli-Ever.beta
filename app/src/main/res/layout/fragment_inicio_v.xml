@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="Vendedor.FragmentInicioV">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:backgroundTint="@color/white"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/TXTNombreUsuarioVendedor"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Nombre de usuario"
+                        android:textColor="@color/azulCielo"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="Mejorando tus ventas"
+                        android:textColor="@color/black"
+                        android:textStyle="italic|bold" />
+
+                </LinearLayout>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ImagenUsuarioVendedor"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="end"
+                    android:contentDescription="Imagen del usuario"
+                    android:src="@drawable/icono_persona"
+                    app:civ_border_color="@color/azulCielo"
+                    app:civ_border_width="2dp"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_marginTop="20dp"
+            android:id="@+id/recyclerViewVendedor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </androidx.recyclerview.widget.RecyclerView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/textViewCerrado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cerrado"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    tools:ignore="HardcodedText" />
+
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"/>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:id="@+id/btn_estado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false" />
+
+                <View
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"/>
+
+                <TextView
+                    android:id="@+id/textViewAbierto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Abierto"
+                    android:textSize="20sp"
+                    android:textColor="@color/black"
+                    tools:ignore="HardcodedText" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/Btn_EditarTienda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/azulCielo"
+            android:padding="10dp"
+            android:text="Editar tienda"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/Btn_AgregarProducto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/azulCielo"
+            android:text="Agregar productos"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText"
+            android:padding="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+        </Button>
+
+        <Button
+            android:id="@+id/Btn_EliminarTienda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="@color/azulCielo"
+            android:text="Eliminar Tienda"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            tools:ignore="HardcodedText"
+            android:padding="10dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+        </Button>
+
+    </LinearLayout>
+
+</FrameLayout>

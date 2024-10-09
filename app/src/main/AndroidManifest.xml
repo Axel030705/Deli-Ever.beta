@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+
+    <application
+        android:name=".Todos.Ubicacion_Conexion.UbicacionConexionAplicacion"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DeliEver"
+        tools:targetApi="31">
+        <activity
+            android:name=".Tutorial.TutorialActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Todos.Inicio.Sin_Conexion_Splash"
+            android:exported="false" />
+        <activity
+            android:name=".Vendedor.Pedidos.pedidos_finalizadosV"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBThcT3OrZ1ONOofNafOMJspNn6sAeErdI" />
+
+        <activity
+            android:name=".Todos.Inicio.Sin_Conexion"
+            android:exported="false"
+            android:launchMode="singleTask" />
+        <activity
+            android:name=".Cliente.Pedidos.pedidos_finalizados"
+            android:exported="false" />
+        <activity
+            android:name=".Vendedor.Pedidos.detalles_pedido_vendedor"
+            android:exported="false" />
+        <activity
+            android:name=".Cliente.Pedidos.detalles_pedido"
+            android:exported="false" />
+        <activity
+            android:name=".Cliente.Pedidos.pedidos"
+            android:exported="false" />
+        <activity
+            android:name=".Todos.Chat.MainActivityChat"
+            android:exported="false" />
+        <activity
+            android:name=".Vendedor.Productos.editar_producto_form"
+            android:exported="false" />
+        <activity
+            android:name=".Administrador.SolicitudesVendedores"
+            android:exported="false" />
+        <activity
+            android:name=".Vendedor.MainActivityEspera"
+            android:exported="false" />
+        <activity
+            android:name=".Vendedor.Productos.vista_producto"
+            android:exported="false" />
+        <activity
+            android:name=".Vendedor.Productos.productos_tienda"
+            android:exported="false" />
+        <activity
+            android:name=".Vendedor.Productos.agregar_producto"
+            android:exported="false" />
+        <activity
+            android:name=".Vendedor.Tiendas.EditarTiendaForm"
+            android:exported="false" />
+        <activity
+            android:name=".Todos.Perfil.Perfil_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Vendedor.Vendedor_Main"
+            android:exported="false" />
+        <activity
+            android:name=".Cliente.Tiendas_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Vendedor.Activity_Vendedor"
+            android:exported="false" />
+        <activity
+            android:name=".Todos.Inicio.Registro"
+            android:exported="false" />
+        <activity
+            android:name=".Todos.Inicio.Login"
+            android:exported="false" />
+        <activity
+            android:name=".Todos.Inicio.MainActivity"
+            android:exported="true"></activity>
+        <activity
+            android:name=".Todos.Inicio.SplashScreen"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

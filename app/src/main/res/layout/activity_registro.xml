@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="Cliente.Registro">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="18dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:text="Crear una Cuenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="25sp"
+            android:gravity="center"
+            tools:ignore="HardcodedText">
+        </TextView>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="280dp"
+            android:layout_height="280dp"
+            app:lottie_imageAssetsFolder="assets"
+            app:lottie_fileName="usuario.json"
+            app:lottie_loop="false"
+            app:lottie_autoPlay="true"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp">
+        </com.airbnb.lottie.LottieAnimationView>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColorHint="@color/black">
+
+            <EditText
+                android:id="@+id/txt_Nombres"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/icono_persona"
+                android:drawablePadding="10dp"
+                android:hint="Nombre"
+                android:inputType="textPersonName|textCapWords"
+                android:padding="20dp"
+                tools:ignore="HardcodedText" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColorHint="@color/black">
+
+            <EditText
+                android:id="@+id/txt_Correo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Correo"
+                tools:ignore="HardcodedText"
+                android:inputType="textEmailAddress"
+                android:padding="20dp"
+                android:drawableStart="@drawable/icono_correo"
+                android:drawablePadding="10dp"
+                android:textColor="@color/black">
+            </EditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:passwordToggleEnabled="true"
+            app:hintEnabled="true"
+            android:textColorHint="@color/black">
+
+            <EditText
+                android:id="@+id/txt_Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Contraseña"
+                tools:ignore="Autofill,HardcodedText"
+                android:inputType="textPassword"
+                android:padding="20dp"
+                android:drawableStart="@drawable/icono_candado"
+                android:drawablePadding="10dp">
+            </EditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:passwordToggleEnabled="true"
+            app:hintEnabled="true">
+
+            <EditText
+                android:id="@+id/txt_ConfirmarPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirma tu contraseña"
+                tools:ignore="HardcodedText"
+                android:inputType="textPassword"
+                android:padding="20dp"
+                android:drawableStart="@drawable/icono_candado"
+                android:drawablePadding="10dp">
+            </EditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/TextInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:hintEnabled="true"
+            android:hint="Selecciona el tipo de usuario"
+            android:textColorHint="@color/black"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+            tools:ignore="HardcodedText">
+
+            <AutoCompleteTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinner"
+                android:inputType="none">
+            </AutoCompleteTextView>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:hintEnabled="true"
+            android:textColorHint="@color/black">
+
+            <EditText
+                android:id="@+id/txt_vendera"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Cuentanos que venderas"
+                tools:ignore="Autofill,HardcodedText"
+                android:inputType="text"
+                android:padding="20dp"
+                android:drawablePadding="10dp">
+            </EditText>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrar usuario"
+            android:id="@+id/Btn_RegistrarUsuario"
+            tools:ignore="HardcodedText"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp">
+        </Button>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:text="Tengo una cuenta"
+            android:id="@+id/TengoCuentaTXT"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+</ScrollView>

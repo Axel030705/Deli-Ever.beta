@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Deli-Ever</string>
+    <string name="Slogan">Ordena, Disfruta, Repite</string>
+    <string name="Slogan2">Tu sabor, a un clic de distancia</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
