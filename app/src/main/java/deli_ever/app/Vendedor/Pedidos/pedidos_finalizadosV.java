@@ -139,6 +139,7 @@ public class pedidos_finalizadosV extends AppCompatActivity {
         pedido.setProducto(dataSnapshot.child("producto").getValue(String.class));
         pedido.setCantidad(dataSnapshot.child("cantidad").getValue(String.class));
         pedido.setMontoSinDescuento(dataSnapshot.child("montoSinDescuento").getValue(String.class));
+        pedido.setMontoConDescuento(dataSnapshot.child("montoConDescuento").getValue(String.class));
         pedido.setEstado(dataSnapshot.child("estado").getValue(String.class));
         pedido.setImgProducto(dataSnapshot.child("imgProducto").getValue(String.class));
         pedido.setIdPedido(dataSnapshot.child("idPedido").getValue(String.class));
