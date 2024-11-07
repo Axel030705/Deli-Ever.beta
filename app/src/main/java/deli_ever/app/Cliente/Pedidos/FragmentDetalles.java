@@ -8,9 +8,11 @@ import android.os.CountDownTimer;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,11 +21,20 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import deli_ever.app.Cliente.Tiendas_Activity;
 import deli_ever.app.R;
@@ -32,7 +43,7 @@ import deli_ever.app.Todos.Pedidos.PedidoClase;
 
 public class FragmentDetalles extends Fragment {
 
-    //Pedido//
+    //Pedido
     private PedidoClase pedido;
     //Variables pedido finalizado
     private Float puntajeDado = 0.0f;
@@ -302,7 +313,7 @@ public class FragmentDetalles extends Fragment {
         ConstraintLayout finalizado_constraint = parentView.findViewById(R.id.finalizado_constraint);
         View view = LayoutInflater.from(requireActivity()).inflate(R.layout.finalizado_dialog, finalizado_constraint);
 
-        //XML
+        // XML
         TextView txt_nombre_producto = view.findViewById(R.id.txt_nameProducto);
         ImageView estrella1 = view.findViewById(R.id.estrella1);
         ImageView estrella2 = view.findViewById(R.id.estrella2);
@@ -311,8 +322,9 @@ public class FragmentDetalles extends Fragment {
         ImageView estrella5 = view.findViewById(R.id.estrella5);
         LinearLayout layout_btn_hecho = view.findViewById(R.id.layout_btn_hecho);
         Button btn_hecho = view.findViewById(R.id.btn_hecho);
+        Spinner spinnerComentarios = view.findViewById(R.id.spinner_comentarios);
 
-        //Configuracion del AlertDialog
+        // Configuración del AlertDialog
         AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
         builder.setView(view);
         final AlertDialog alertDialog = builder.create();
@@ -320,120 +332,136 @@ public class FragmentDetalles extends Fragment {
 
         txt_nombre_producto.setText(pedido.getProducto());
 
-        estrella1.setOnClickListener(new View.OnClickListener() {
+        // Listener para las estrellas
+        View.OnClickListener estrellaListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Poner la estrella seleccionada azul
-                estrella1.setImageResource(R.drawable.estrella_2dialog);
+                // Cambiar las estrellas de acuerdo con la selección
+                if (view.getId() == R.id.estrella1) {
+                    estrella1.setImageResource(R.drawable.estrella_2dialog);
+                    estrella2.setImageResource(R.drawable.estrella_dialog);
+                    estrella3.setImageResource(R.drawable.estrella_dialog);
+                    estrella4.setImageResource(R.drawable.estrella_dialog);
+                    estrella5.setImageResource(R.drawable.estrella_dialog);
+                    puntajeDado = 0.2f;
+                } else if (view.getId() == R.id.estrella2) {
+                    estrella1.setImageResource(R.drawable.estrella_2dialog);
+                    estrella2.setImageResource(R.drawable.estrella_2dialog);
+                    estrella3.setImageResource(R.drawable.estrella_dialog);
+                    estrella4.setImageResource(R.drawable.estrella_dialog);
+                    estrella5.setImageResource(R.drawable.estrella_dialog);
+                    puntajeDado = 0.4f;
+                } else if (view.getId() == R.id.estrella3) {
+                    estrella1.setImageResource(R.drawable.estrella_2dialog);
+                    estrella2.setImageResource(R.drawable.estrella_2dialog);
+                    estrella3.setImageResource(R.drawable.estrella_2dialog);
+                    estrella4.setImageResource(R.drawable.estrella_dialog);
+                    estrella5.setImageResource(R.drawable.estrella_dialog);
+                    puntajeDado = 0.6f;
+                } else if (view.getId() == R.id.estrella4) {
+                    estrella1.setImageResource(R.drawable.estrella_2dialog);
+                    estrella2.setImageResource(R.drawable.estrella_2dialog);
+                    estrella3.setImageResource(R.drawable.estrella_2dialog);
+                    estrella4.setImageResource(R.drawable.estrella_2dialog);
+                    estrella5.setImageResource(R.drawable.estrella_dialog);
+                    puntajeDado = 0.8f;
+                } else if (view.getId() == R.id.estrella5) {
+                    estrella1.setImageResource(R.drawable.estrella_2dialog);
+                    estrella2.setImageResource(R.drawable.estrella_2dialog);
+                    estrella3.setImageResource(R.drawable.estrella_2dialog);
+                    estrella4.setImageResource(R.drawable.estrella_2dialog);
+                    estrella5.setImageResource(R.drawable.estrella_2dialog);
+                    puntajeDado = 1.0f;
+                }
+                // Mostrar el botón "Hecho" después de elegir una estrella
                 layout_btn_hecho.setVisibility(View.VISIBLE);
+            }
+        };
 
-                //Poner las demas estrellas grises
-                estrella2.setImageResource(R.drawable.estrella_dialog);
-                estrella3.setImageResource(R.drawable.estrella_dialog);
-                estrella4.setImageResource(R.drawable.estrella_dialog);
-                estrella5.setImageResource(R.drawable.estrella_dialog);
+        // Asignar el mismo listener a todas las estrellas
+        estrella1.setOnClickListener(estrellaListener);
+        estrella2.setOnClickListener(estrellaListener);
+        estrella3.setOnClickListener(estrellaListener);
+        estrella4.setOnClickListener(estrellaListener);
+        estrella5.setOnClickListener(estrellaListener);
 
-                puntajeDado = 0.2f;
+        // Listener para el Spinner de comentarios
+        spinnerComentarios.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // Verificar si se selecciona un comentario
+                if (position != 0) { // Asumimos que la opción 0 es la predeterminada ("Seleccionar comentario")
+                    layout_btn_hecho.setVisibility(View.VISIBLE);
+                }
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // No hacer nada si no se selecciona ningún comentario
             }
         });
 
-        estrella2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                estrella1.setImageResource(R.drawable.estrella_2dialog);
-                estrella2.setImageResource(R.drawable.estrella_2dialog);
-                layout_btn_hecho.setVisibility(View.VISIBLE);
-
-                //Poner las demas estrellas grises
-                estrella3.setImageResource(R.drawable.estrella_dialog);
-                estrella4.setImageResource(R.drawable.estrella_dialog);
-                estrella5.setImageResource(R.drawable.estrella_dialog);
-
-                puntajeDado = 0.4f;
-            }
-        });
-
-        estrella3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                estrella1.setImageResource(R.drawable.estrella_2dialog);
-                estrella2.setImageResource(R.drawable.estrella_2dialog);
-                estrella3.setImageResource(R.drawable.estrella_2dialog);
-                layout_btn_hecho.setVisibility(View.VISIBLE);
-
-                //Poner las demas estrellas grises
-                estrella4.setImageResource(R.drawable.estrella_dialog);
-                estrella5.setImageResource(R.drawable.estrella_dialog);
-
-                puntajeDado = 0.6f;
-            }
-        });
-
-        estrella4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                estrella1.setImageResource(R.drawable.estrella_2dialog);
-                estrella2.setImageResource(R.drawable.estrella_2dialog);
-                estrella3.setImageResource(R.drawable.estrella_2dialog);
-                estrella4.setImageResource(R.drawable.estrella_2dialog);
-                layout_btn_hecho.setVisibility(View.VISIBLE);
-
-                //Poner las demas estrellas grises
-                estrella5.setImageResource(R.drawable.estrella_dialog);
-
-                puntajeDado = 0.8f;
-            }
-        });
-
-        estrella5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                estrella1.setImageResource(R.drawable.estrella_2dialog);
-                estrella2.setImageResource(R.drawable.estrella_2dialog);
-                estrella3.setImageResource(R.drawable.estrella_2dialog);
-                estrella4.setImageResource(R.drawable.estrella_2dialog);
-                estrella5.setImageResource(R.drawable.estrella_2dialog);
-                layout_btn_hecho.setVisibility(View.VISIBLE);
-
-                puntajeDado = 1.0f;
-            }
-        });
-
+        // Configuración del botón "Hecho"
         btn_hecho.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SimpleDateFormat")
             @Override
             public void onClick(View view) {
                 alertDialog.dismiss();
-                Toast.makeText(requireActivity(), "Agracedemos tu opinión", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireActivity(), "Agradecemos tu opinión", Toast.LENGTH_SHORT).show();
 
-                //Actualiza el pedido del cliente a calificado ("Si")
+                // Actualizar el pedido del cliente y tienda como calificado
                 DatabaseReference clientePedidoRef = FirebaseDatabase.getInstance().getReference("Usuarios")
                         .child(idUsr)
                         .child("Pedidos")
                         .child(id_pedido);
-
                 clientePedidoRef.child("calificado").setValue("Si");
 
-                //Actualiza el pedido de la tienda a calificado ("Si")
                 DatabaseReference tiendaPedidoRef = FirebaseDatabase.getInstance().getReference("Tienda")
                         .child(pedido.getIdTienda())
                         .child("Pedidos")
                         .child(id_pedido);
-
                 tiendaPedidoRef.child("calificado").setValue("Si");
 
-                //Obtener el puntaje del producto
+                // Obtener y actualizar el puntaje del producto
                 DatabaseReference tiendaProductoRef = FirebaseDatabase.getInstance().getReference("Tienda")
                         .child(pedido.getIdTienda())
                         .child("productos")
                         .child(pedido.getIdProducto());
+
+                // Obtener y agregar el comentario del producto
+                String comentario = spinnerComentarios.getSelectedItem().toString();
+                DatabaseReference tiendaComentarioRef = FirebaseDatabase.getInstance().getReference("Tienda")
+                        .child(pedido.getIdTienda())
+                        .child("Comentarios");
+
+                // Crear un objeto para almacenar el comentario con detalles
+                String comentarioId = tiendaComentarioRef.push().getKey();  // Obtener una clave única para el comentario
+                Map<String, Object> comentarioMap = new HashMap<>();
+                comentarioMap.put("comentario", comentario);  // El texto del comentario seleccionado
+                comentarioMap.put("idProducto", pedido.getIdProducto());  // ID del producto comentado
+                comentarioMap.put("idCliente", pedido.getIdCliente());  // ID del cliente que hace el comentario
+                comentarioMap.put("fecha", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));  // Fecha y hora del comentario
+
+                // Agregar el comentario a Firebase en el nodo generado automáticamente
+                if (comentarioId != null) {
+                    tiendaComentarioRef.child(comentarioId).updateChildren(comentarioMap)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(requireActivity(), "Comentario agregado con éxito", Toast.LENGTH_SHORT).show();
+                                    } else {
+                                        Toast.makeText(requireActivity(), "Error al agregar el comentario", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                }
 
                 tiendaProductoRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (snapshot.child("puntaje").exists()) {
                             String puntajeActualString = snapshot.child("puntaje").getValue(String.class);
-
                             if (puntajeActualString != null && !puntajeActualString.isEmpty()) {
                                 Float puntajeActualFloat = Float.valueOf(puntajeActualString);
                                 setPuntaje(puntajeActualFloat, puntajeDado);
@@ -443,18 +471,16 @@ public class FragmentDetalles extends Fragment {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
-
                     }
                 });
 
             }
         });
+
         if (alertDialog.getWindow() != null) {
             alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
         }
         alertDialog.show();
-
-
     }
 
     private void setPuntaje(Float puntajeActual, Float puntajeAsignado) {

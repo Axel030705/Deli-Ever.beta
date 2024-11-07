@@ -2,6 +2,14 @@
     <string name="app_name">Deli-Ever</string>
     <string name="Slogan">Ordena, Disfruta, Repite</string>
     <string name="Slogan2">Tu sabor, a un clic de distancia</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <string-array name="comentarios_predeterminados">
+        <item>Selecciona un comentario.</item>
+        <item>Excelente producto, muy recomendable.</item>
+        <item>Muy bueno, pero podría mejorar.</item>
+        <item>Producto regular, esperaba algo mejor.</item>
+        <item>No me gustó, no lo recomendaría.</item>
+    </string-array>
+
 </resources>

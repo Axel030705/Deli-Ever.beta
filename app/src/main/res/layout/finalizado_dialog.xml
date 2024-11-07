@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/finalizado_constraint"
-    android:layout_width="300dp"
+    android:layout_width="320dp"
     android:layout_height="wrap_content">
 
     <LinearLayout
         android:id="@+id/layoutDialog"
-        android:layout_width="300dp"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:background="@drawable/custom_bkg"
         android:gravity="center"
@@ -17,16 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <!--<com.airbnb.lottie.LottieAnimationView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="10dp"
-            app:lottie_autoPlay="true"
-            app:lottie_fileName="sucess.json"
-            app:lottie_imageAssetsFolder="assets"
-            app:lottie_loop="false" />-->
-
+        <!-- Imagen de éxito -->
         <ImageView
             android:layout_width="70dp"
             android:layout_height="70dp"
@@ -34,6 +25,7 @@
             android:layout_marginTop="10dp"
             android:src="@drawable/sucess"/>
 
+        <!-- Texto Finalizado -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -43,6 +35,7 @@
             android:textSize="18sp"
             tools:ignore="HardcodedText" />
 
+        <!-- Pregunta sobre el producto -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,6 +45,7 @@
             android:textSize="18sp"
             tools:ignore="HardcodedText" />
 
+        <!-- Nombre del producto -->
         <TextView
             android:id="@+id/txt_nameProducto"
             android:layout_width="wrap_content"
@@ -62,6 +56,7 @@
             android:textSize="12sp"
             tools:ignore="HardcodedText" />
 
+        <!-- Layout de las estrellas -->
         <LinearLayout
             android:id="@+id/LayoutPuntaje"
             android:layout_width="wrap_content"
@@ -70,55 +65,56 @@
             android:layout_marginBottom="10dp"
             android:gravity="center"
             android:orientation="horizontal">
-
+            <!-- Estrellas -->
             <ImageView
                 android:id="@+id/estrella1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/estrella_dialog" />
-
             <View
                 android:layout_width="7dp"
                 android:layout_height="25dp" />
-
             <ImageView
                 android:id="@+id/estrella2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/estrella_dialog" />
-
             <View
                 android:layout_width="7dp"
                 android:layout_height="25dp" />
-
             <ImageView
                 android:id="@+id/estrella3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/estrella_dialog" />
-
             <View
                 android:layout_width="7dp"
                 android:layout_height="25dp" />
-
             <ImageView
                 android:id="@+id/estrella4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/estrella_dialog" />
-
             <View
                 android:layout_width="7dp"
                 android:layout_height="25dp" />
-
             <ImageView
                 android:id="@+id/estrella5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/estrella_dialog" />
-
         </LinearLayout>
 
+        <!-- Spinner con comentarios -->
+        <Spinner
+            android:id="@+id/spinner_comentarios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:entries="@array/comentarios_predeterminados"
+            android:spinnerMode="dropdown" />
+
+        <!-- Layout para el botón Hecho -->
         <LinearLayout
             android:id="@+id/layout_btn_hecho"
             android:layout_width="wrap_content"
@@ -135,9 +131,6 @@
                 android:text="Hecho"
                 android:background="@drawable/custom_bkg_botones"
                 tools:ignore="HardcodedText" />
-
-
-
         </LinearLayout>
 
     </LinearLayout>

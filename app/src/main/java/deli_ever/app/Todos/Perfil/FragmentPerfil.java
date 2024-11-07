@@ -169,7 +169,7 @@ public class FragmentPerfil extends Fragment {
         });
 
 
-        btnCerrarSesion =view.findViewById(R.id.Btn_CerrarSesionPerfil);
+        btnCerrarSesion = view.findViewById(R.id.Btn_CerrarSesionPerfil);
         btnCerrarSesion.setOnClickListener(new View.OnClickListener()
 
             {
