@@ -1,10 +1,13 @@
 package deli_ever.app.Vendedor.Tiendas;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -14,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 
 import deli_ever.app.R;
+import deli_ever.app.Vendedor.Comentarios.Activity_Comentarios;
 
 public class TiendaViewHolder extends RecyclerView.ViewHolder {
 
@@ -81,6 +85,7 @@ public class TiendaViewHolder extends RecyclerView.ViewHolder {
         TextView descripcionTienda = dialogView.findViewById(R.id.descripcionTienda);
         TextView ubicacionTienda = dialogView.findViewById(R.id.ubicacionTienda);
         TextView extraTienda = dialogView.findViewById(R.id.extraTienda);
+        Button BtnVerComentarios = dialogView.findViewById(R.id.BtnVerComentarios);
 
         // Establecer valores de las vistas con los detalles de la tienda
         nombreTienda.setText(tienda.getNombre());
@@ -92,6 +97,23 @@ public class TiendaViewHolder extends RecyclerView.ViewHolder {
         Glide.with(context)
                 .load(tienda.getImageUrl())
                 .into(imgTienda);
+
+        //Mandar a Activity de Comentarios
+        BtnVerComentarios.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, Activity_Comentarios.class);
+                i.putExtra("ID_Tienda", tienda.getId());
+
+                // Agregar FLAG_ACTIVITY_NEW_TASK si el contexto no es un Activity
+                if (!(context instanceof Activity)) {
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                }
+
+                context.startActivity(i);
+            }
+        });
+
 
         // Crear el diálogo
         AlertDialog.Builder builder = new AlertDialog.Builder(context);

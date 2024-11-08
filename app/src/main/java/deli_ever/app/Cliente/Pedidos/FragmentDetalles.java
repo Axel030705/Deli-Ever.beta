@@ -444,6 +444,7 @@ public class FragmentDetalles extends Fragment {
                 comentarioMap.put("idTienda", pedido.getIdTienda());  // ID de la tienda que recibe el comentario
                 comentarioMap.put("Likes", "0");  // Likes del comentario
                 comentarioMap.put("Dislikes", "0");  // Dislikes del comentario
+                comentarioMap.put("imagenProducto", pedido.getImgProducto());  // Imagen del producto comentado
 
                 // Agregar el comentario a Firebase en el nodo generado automáticamente
                 if (comentarioId != null) {

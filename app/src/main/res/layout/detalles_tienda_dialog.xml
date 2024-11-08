@@ -22,6 +22,7 @@
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
+            android:src="@color/azulCielo"
             android:layout_marginTop="10dp"/>
 
         <TextView
@@ -70,6 +71,14 @@
             android:textStyle="bold|italic"
             android:textColor="@color/black"
             android:textSize="18sp"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/BtnVerComentarios"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver comentarios"
+            android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             tools:ignore="HardcodedText" />
 
