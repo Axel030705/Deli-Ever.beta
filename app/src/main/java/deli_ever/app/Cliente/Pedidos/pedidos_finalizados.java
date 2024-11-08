@@ -111,6 +111,7 @@ public class pedidos_finalizados extends AppCompatActivity {
                             String nombre_Cliente = pedidoDataSnapshot.child("nombre_Cliente").getValue(String.class);
                             String descuento = pedidoDataSnapshot.child("descuento").getValue(String.class);
                             String montoConDescuento = pedidoDataSnapshot.child("montoConDescuento").getValue(String.class);
+                            String Telefono_Cliente = pedidoDataSnapshot.child("telefono_Cliente").getValue(String.class);
 
                             // Agregar condición para filtrar por estado
                             if ("Finalizado".equals(estado)) {
@@ -129,6 +130,7 @@ public class pedidos_finalizados extends AppCompatActivity {
                                 pedido.setNombre_Cliente(nombre_Cliente);
                                 pedido.setDescuento(descuento);
                                 pedido.setMontoConDescuento(montoConDescuento);
+                                pedido.setTelefono_Cliente(Telefono_Cliente);
                                 listaPedidos.add(pedido);
 
                                 // Marcamos que hay pedidos con estados válidos

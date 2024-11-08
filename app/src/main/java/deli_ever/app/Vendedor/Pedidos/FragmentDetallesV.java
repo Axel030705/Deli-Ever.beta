@@ -1,8 +1,12 @@
 package deli_ever.app.Vendedor.Pedidos;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,8 +19,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -77,7 +84,18 @@ public class FragmentDetallesV extends Fragment {
         llamar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String telefonoCliente = "tel:" + pedidoV.getTelefono_Cliente(); // Asegúrate de obtener el número de teléfono del cliente
 
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                intent.setData(Uri.parse(telefonoCliente));
+
+                // Verifica si se tiene el permiso de CALL_PHONE
+                if (ContextCompat.checkSelfPermission(view.getContext(), Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                    startActivity(intent); // Inicia la llamada
+                } else {
+                    // Si no se tiene el permiso, solicitarlo
+                    ActivityCompat.requestPermissions((Activity) view.getContext(), new String[]{Manifest.permission.CALL_PHONE}, 1);
+                }
             }
         });
 
@@ -221,6 +239,23 @@ public class FragmentDetallesV extends Fragment {
                     .child(idPedido);
             clientePedidoRef.child("descuento").setValue(descuento);
             clientePedidoRef.child("montoConDescuento").setValue(precioTotal2);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 1) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                // Permiso concedido, realiza la llamada
+                String telefonoCliente = "tel:" + pedidoV.getTelefono_Cliente();
+                Intent intent = new Intent(Intent.ACTION_CALL);
+                intent.setData(Uri.parse(telefonoCliente));
+                startActivity(intent);
+            } else {
+                // Permiso denegado, puedes mostrar un mensaje al usuario
+                Toast.makeText(requireActivity(), "Permiso de llamada no concedido", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

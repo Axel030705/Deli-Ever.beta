@@ -149,6 +149,7 @@ public class pedidos_finalizadosV extends AppCompatActivity {
         pedido.setFecha_Hora(dataSnapshot.child("fecha_hora").getValue(String.class));
         pedido.setNombre_Cliente(dataSnapshot.child("nombre_Cliente").getValue(String.class));
         pedido.setDescuento(dataSnapshot.child("descuento").getValue(String.class));
+        pedido.setTelefono_Cliente(dataSnapshot.child("telefono").getValue(String.class));
         return pedido;
     }
 }

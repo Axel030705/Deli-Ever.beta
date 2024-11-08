@@ -61,7 +61,7 @@ public class vista_producto extends AppCompatActivity {
     public String productoImg, productoNombre, productoDescripcion, productoPrecio, productoExtra, idTienda, productoCantidad, productoId;
     public Button Btn_comprarProducto, Btn_EditarProducto, Btn_EliminarProducto;
     //Usuario
-    public String nombreUsr;
+    public String nombreUsr, Telefono_Cliente;
     //Variables pedido
     public double precioTotal;
     private String ubicacionV;
@@ -115,6 +115,7 @@ public class vista_producto extends AppCompatActivity {
                 if (dataSnapshot.exists()) {
                     nombreUsr = dataSnapshot.child("nombre").getValue(String.class);
                     String tipo = dataSnapshot.child("Tipo de usuario").getValue(String.class);
+                    Telefono_Cliente = dataSnapshot.child("telefono").getValue(String.class);
 
                     assert tipo != null;
                     if (tipo.equals("Vendedor")) {
@@ -326,7 +327,7 @@ public class vista_producto extends AppCompatActivity {
                 String referencias = txt_referencias.getText().toString();
 
                 // Crea una instancia del modelo de PedidoClase con datos reales
-                PedidoClase nuevoPedido = new PedidoClase(nuevoPedidoId, fechaHoraActual, nombreUsr, txt_ubicacion.getText().toString(), productoNombre, precioTotalString, "Pendiente", "Ninguno", idTienda, productoImg, cantidadSeleccionada, userId, productoId,"No", vendedorId,propina, referencias, "0");
+                PedidoClase nuevoPedido = new PedidoClase(nuevoPedidoId, fechaHoraActual, nombreUsr, txt_ubicacion.getText().toString(), productoNombre, precioTotalString, "Pendiente", "Ninguno", idTienda, productoImg, cantidadSeleccionada, userId, productoId,"No", vendedorId,propina, referencias, "0",Telefono_Cliente);
 
                 // Guarda el nuevo pedido en la base de datos bajo el nodo del usuario
                 assert nuevoPedidoId != null;

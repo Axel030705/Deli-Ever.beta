@@ -48,14 +48,14 @@ import deli_ever.app.Vendedor.MainActivityEspera;
 public class Registro extends AppCompatActivity {
 
     private static final int REQUEST_LOCATION_PERMISSION = 1;
-    private EditText txt_Nombre, txt_Correo, txt_Password, txt_ConfirmarPassword, txt_vendera;
+    private EditText txt_Nombre, txt_Correo, txt_Password, txt_ConfirmarPassword, txt_vendera, txt_telefono;
     private Button Btn_RegistrarUsuario;
     private TextView TengoCuentaTXT;
     private AutoCompleteTextView spinner;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
     private FusedLocationProviderClient fusedLocationClient;
-    private String nombre = "", correo = "", password = "", confirmarpassword = "", tipoUsuario, txt_vendera2, direccionUser;
+    private String nombre = "", correo = "", password = "", confirmarpassword = "", tipoUsuario, txt_vendera2, direccionUser, telefono;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +70,7 @@ public class Registro extends AppCompatActivity {
 
         TextInputLayout TextInput = findViewById(R.id.TextInput);
         txt_Nombre = findViewById(R.id.txt_Nombres);
+        txt_telefono = findViewById(R.id.txt_telefono);
         txt_Correo = findViewById(R.id.txt_Correo);
         txt_Password = findViewById(R.id.txt_Password);
         txt_ConfirmarPassword = findViewById(R.id.txt_ConfirmarPassword);
@@ -194,6 +195,7 @@ public class Registro extends AppCompatActivity {
         confirmarpassword = txt_ConfirmarPassword.getText().toString();
         tipoUsuario = spinner.getText().toString().trim();
         txt_vendera2 = txt_vendera.getText().toString();
+        telefono = txt_telefono.getText().toString();
 
         if (TextUtils.isEmpty(nombre)) {
             Toast.makeText(this, "Ingrese su nombre", Toast.LENGTH_SHORT).show();
@@ -206,7 +208,11 @@ public class Registro extends AppCompatActivity {
         } else if (!password.equals(confirmarpassword)) {
             Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
         } else if ("Vendedor".equals(tipoUsuario) && TextUtils.isEmpty(txt_vendera2)) {
-            Toast.makeText(this, "Ingrese el nombre de su tienda", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Ingrese lo que vendera en su tienda", Toast.LENGTH_SHORT).show();
+        } else if (TextUtils.isEmpty(telefono)) {
+            Toast.makeText(this, "Ingrese su numero de telefono", Toast.LENGTH_SHORT).show();
+        } else if (!telefono.matches("\\d{10}")) {
+            Toast.makeText(this, "El número de teléfono debe tener 10 dígitos", Toast.LENGTH_SHORT).show();
         } else {
             RegistrarUsuario();
         }
@@ -246,6 +252,7 @@ public class Registro extends AppCompatActivity {
         Datos.put("Tipo de usuario", tipoUsuario);
         Datos.put("Vendera", txt_vendera2);
         Datos.put("direccion", direccionUser);
+        Datos.put("telefono", telefono);
 
         if (token != null) {
             Datos.put("tokenFCM", token);

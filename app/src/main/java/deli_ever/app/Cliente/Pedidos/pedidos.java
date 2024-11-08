@@ -165,6 +165,7 @@ public class pedidos extends AppCompatActivity {
                             String descuento = pedidoDataSnapshot.child("descuento").getValue(String.class);
                             String montoConDescuento = pedidoDataSnapshot.child("montoConDescuento").getValue(String.class);
                             String idVendedor = pedidoDataSnapshot.child("idVendedor").getValue(String.class);
+                            String Telefono_Cliente = pedidoDataSnapshot.child("telefono_Cliente").getValue(String.class);
 
                             // Agregar condición para filtrar por estado
                             if ("Pendiente".equals(estado) || "Camino".equals(estado) || "Preparando".equals(estado)) {
@@ -184,6 +185,7 @@ public class pedidos extends AppCompatActivity {
                                 pedido.setDescuento(descuento);
                                 pedido.setMontoConDescuento(montoConDescuento);
                                 pedido.setIdVendedor(idVendedor);
+                                pedido.setTelefono_Cliente(Telefono_Cliente);
                                 listaPedidos.add(pedido);
 
                                 // Marcamos que hay pedidos con estados válidos
@@ -267,6 +269,7 @@ public class pedidos extends AppCompatActivity {
                                             String descuento = pedidoSnapshot.child("descuento").getValue(String.class);
                                             String montoConDescuento = pedidoSnapshot.child("montoConDescuento").getValue(String.class);
                                             String idVendedor = pedidoSnapshot.child("idVendedor").getValue(String.class);
+                                            String Telefono_Cliente = pedidoSnapshot.child("telefono_Cliente").getValue(String.class);
 
                                             // Crear objeto Pedido y agregar a la lista
                                             PedidoClase pedido = new PedidoClase();
@@ -284,6 +287,7 @@ public class pedidos extends AppCompatActivity {
                                             pedido.setDescuento(descuento);
                                             pedido.setMontoConDescuento(montoConDescuento);
                                             pedido.setIdVendedor(idVendedor);
+                                            pedido.setTelefono_Cliente(Telefono_Cliente);
                                             listaPedidosVendedor.add(pedido);
                                         }
                                     }
