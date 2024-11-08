@@ -311,7 +311,7 @@ public class FragmentDetalles extends Fragment {
 
     private void mostrarFinalizadoDialog(View parentView, String id_pedido) {
         ConstraintLayout finalizado_constraint = parentView.findViewById(R.id.finalizado_constraint);
-        View view = LayoutInflater.from(requireActivity()).inflate(R.layout.finalizado_dialog, finalizado_constraint);
+        View view = LayoutInflater.from(requireActivity()).inflate(R.layout.finalizado_dialog, null);
 
         // XML
         TextView txt_nombre_producto = view.findViewById(R.id.txt_nameProducto);
@@ -441,6 +441,9 @@ public class FragmentDetalles extends Fragment {
                 comentarioMap.put("idProducto", pedido.getIdProducto());  // ID del producto comentado
                 comentarioMap.put("idCliente", pedido.getIdCliente());  // ID del cliente que hace el comentario
                 comentarioMap.put("fecha", new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));  // Fecha y hora del comentario
+                comentarioMap.put("idTienda", pedido.getIdTienda());  // ID de la tienda que recibe el comentario
+                comentarioMap.put("Likes", "0");  // Likes del comentario
+                comentarioMap.put("Dislikes", "0");  // Dislikes del comentario
 
                 // Agregar el comentario a Firebase en el nodo generado automáticamente
                 if (comentarioId != null) {
