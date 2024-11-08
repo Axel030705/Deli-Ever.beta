@@ -1,7 +1,9 @@
 package deli_ever.app.Vendedor.Comentarios;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,16 +19,26 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import deli_ever.app.Cliente.Tiendas_Activity;
 import deli_ever.app.R;
 
 public class Activity_Comentarios extends AppCompatActivity {
 
     private final DatabaseReference tiendaRef = FirebaseDatabase.getInstance().getReference("Tienda");
+    ImageView atras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comentarios);
+
+        atras = findViewById(R.id.atras);
+
+        atras.setOnClickListener(v -> {
+            Intent intent = new Intent(Activity_Comentarios.this, Tiendas_Activity.class);
+            startActivity(intent);
+            finish();
+        });
 
         // Obtener el ID_Tienda desde el Intent
         String idTienda = getIntent().getStringExtra("ID_Tienda");

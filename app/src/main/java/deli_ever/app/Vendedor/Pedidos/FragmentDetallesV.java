@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -34,6 +35,7 @@ public class FragmentDetallesV extends Fragment {
     private TextView txt_productosV, txt_precio, txt_envio, txt_precioTotal, txt_direccion;
     private LinearLayout layout_btn_descuento, LayoutMsjV;
     private Button btn_descuento;
+    ImageView llamar;
 
     // Variables
     private double precioTotal;
@@ -69,10 +71,17 @@ public class FragmentDetallesV extends Fragment {
         txt_direccion = view.findViewById(R.id.txt_direccionV);
         btn_descuento = view.findViewById(R.id.btn_descuento);
         LayoutMsjV = view.findViewById(R.id.LayoutMsjV);
-
+        llamar = view.findViewById(R.id.llamar);
         layout_btn_descuento.setVisibility(View.GONE);
 
-        // Set up discount text watcher
+        llamar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+        // Escuchar cambios en el campo de descuento
         txt_descuento.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
