@@ -35,9 +35,19 @@ public class TiendaAdapter extends RecyclerView.Adapter<TiendaViewHolder> {
 
         // Mostrar el estado en la card
         if ("Cerrado".equals(tienda.getEstado())) {
-            holder.txtEstadoTienda.setVisibility(View.VISIBLE);
+            /*holder.txtEstadoTienda.setVisibility(View.VISIBLE);
             holder.itemView.setOnClickListener(null); // Deshabilitar clic
-            holder.itemView.setAlpha(0.5f); // Opcional: hacer que la card sea transparente
+            holder.itemView.setAlpha(0.5f); // Opcional: hacer que la card sea transparente */
+
+            //Poder entrar a la tienda aunque esté cerrada
+            holder.txtEstadoTienda.setVisibility(View.VISIBLE);
+            holder.itemView.setAlpha(0.5f); // Hacer que la card sea transparente
+            holder.itemView.setOnClickListener(v -> {
+                Intent intent = new Intent(v.getContext(), productos_tienda.class);
+                intent.putExtra("tiendaId", tienda.getId());
+                v.getContext().startActivity(intent);
+            });
+
         } else {
             holder.txtEstadoTienda.setVisibility(View.GONE);
             holder.itemView.setOnClickListener(v -> {

@@ -38,9 +38,12 @@ public class TiendaViewHolder extends RecyclerView.ViewHolder {
         itemView.setOnLongClickListener(v -> {
             TiendaClase tienda = (TiendaClase) v.getTag();
             // Mostrar detalles solo si la tienda no está cerrada
-            if (!"Cerrado".equals(tienda.getEstado())) {
+            /*if (!"Cerrado".equals(tienda.getEstado())) {
                 mostrarDetallesTienda(v.getContext(), tienda);
-            }
+            }*/
+
+            //Mostrar detalles de la tienda aunque esté cerrada
+            mostrarDetallesTienda(v.getContext(), tienda);
             return true;
         });
     }
