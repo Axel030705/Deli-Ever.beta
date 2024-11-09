@@ -91,7 +91,8 @@
             android:id="@+id/Btn_preparacion"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:text="En preparación"/>
+            android:text="En preparación"
+            android:layout_marginStart="10dp"/>
 
         <View
             android:layout_width="50dp"
@@ -99,9 +100,10 @@
 
         <Button
             android:id="@+id/Btn_camino"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:text="En camino"/>
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="En camino"
+            android:layout_marginEnd="10dp"/>
 
     </LinearLayout>
 

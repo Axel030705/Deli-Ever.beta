@@ -15,6 +15,12 @@
         tools:ignore="HardcodedText" />
 
     <item
+        android:id="@+id/menu_red"
+        android:icon="@drawable/red_social"
+        android:title="Red Social"
+        tools:ignore="HardcodedText" />
+
+    <item
         android:id="@+id/menu_perfil"
         android:icon="@drawable/usuario"
         android:title="Mi perfil"

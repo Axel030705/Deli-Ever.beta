@@ -9,12 +9,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import deli_ever.app.R;
+import deli_ever.app.Red_Social.Fragment_Red_Social_Main;
 import deli_ever.app.Todos.Perfil.FragmentPerfil;
 
 public class Tiendas_Activity extends AppCompatActivity {
 
     FragmentTransaction transactionDP;
-    Fragment fragmentInicio, fragmentPedidos, fragmentPerfil;
+    Fragment fragmentInicio, fragmentPedidos, fragmentPerfil, fragmentRed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class Tiendas_Activity extends AppCompatActivity {
         //Fragments
         fragmentInicio = new FragmentInicio();
         fragmentPedidos = new FragmentPedidos();
+        fragmentRed = new Fragment_Red_Social_Main();
         fragmentPerfil = new FragmentPerfil();
 
         //Fragment Inicio
@@ -44,16 +46,14 @@ public class Tiendas_Activity extends AppCompatActivity {
                 // Realizar las acciones correspondientes al elemento seleccionado
                 if (itemId == R.id.menu_inicio) {
                     transactionDP.replace(R.id.contentFragments_tiendas, fragmentInicio).commit();
-                    // Cambia el ícono y el color del elemento del menú seleccionado
-                    /*item.setIcon(R.drawable.info_2);
-                    Objects.requireNonNull(item.getIcon()).setColorFilter(getResources().getColor(R.color.azulCielo), PorterDuff.Mode.SRC_IN);*/
                     return true;
                 } else if (itemId == R.id.menu_pedidos) {
                     transactionDP.replace(R.id.contentFragments_tiendas, fragmentPedidos).commit();
-                    // Cambia el ícono y el color del elemento del menú seleccionado
-                    /*item.setIcon(R.drawable.ubi_2);
-                    Objects.requireNonNull(item.getIcon()).setColorFilter(getResources().getColor(R.color.azulCielo), PorterDuff.Mode.SRC_IN);*/
                     return true;
+                } else if (itemId == R.id.menu_red) {
+                    transactionDP.replace(R.id.contentFragments_tiendas, fragmentRed).commit();
+                    return true;
+
                 } else if (itemId == R.id.menu_perfil) {
                     transactionDP.replace(R.id.contentFragments_tiendas, fragmentPerfil).commit();
                     return true;

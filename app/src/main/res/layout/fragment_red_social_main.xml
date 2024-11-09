@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Red_Social.Fragment_Red_Social_Main"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="20dp">
+
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="DeliFeed"
+                android:textSize="30sp"
+                android:textColor="@color/azulCielo"
+                android:textStyle="bold"
+                tools:ignore="HardcodedText"/>
+
+            <!-- <ImageView
+                android:id="@+id/btn_publicar"
+                android:layout_width="50dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="30dp"
+                android:src="@drawable/agregar"/> -->
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1.5dp"
+            android:background="#AAAAAA"/>
+
+        <LinearLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            android:background="@color/white"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ImagenUsuario"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:contentDescription="Imagen del usuario"
+                android:src="@drawable/icono_persona"
+                app:civ_border_color="@color/azulCielo"
+                app:civ_border_width="2dp"
+                tools:ignore="HardcodedText" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="50dp"/>
+
+            <EditText
+                android:id="@+id/btn_publicar_todo"
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:text="¿Qué estás pensando?"
+                android:textAlignment="center"
+                android:textSize="17sp"
+                android:textColor="@color/black"
+                android:background="@drawable/ovalo_edittext"
+                android:editable="false"
+                tools:ignore="HardcodedText" />
+
+            <View
+                android:layout_width="10dp"
+                android:layout_height="50dp"/>
+
+            <ImageView
+                android:id="@+id/btn_publicar_imagen"
+                android:layout_width="40dp"
+                android:layout_height="50dp"
+                android:src="@drawable/foto"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

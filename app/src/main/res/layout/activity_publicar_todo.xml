@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white"
+    tools:context=".Red_Social.Activity_Publicar_Todo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:background="@color/white">
+
+        <ImageView
+            android:id="@+id/atras"
+            android:layout_width="30dp"
+            android:layout_height="35dp"
+            android:src="@drawable/atras"
+            android:layout_marginEnd="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="Crear publicación"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:layout_marginEnd="42dp"
+            tools:ignore="HardcodedText" />
+
+        <Button
+            android:id="@+id/publicar"
+            android:layout_width="wrap_content"
+            android:layout_height="35dp"
+            android:text="Publicar"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:background="@color/azulCielo"
+            android:gravity="center"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="#AAAAAA"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp"
+        android:background="@color/white">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ImagenUsuario"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:contentDescription="Imagen del usuario"
+            android:src="@drawable/icono_persona"
+            app:civ_border_color="@color/azulCielo"
+            app:civ_border_width="2dp"
+            android:layout_marginEnd="20dp"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:id="@+id/usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:text="Nombre usuario"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1.5dp"
+        android:background="#AAAAAA"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:background="@color/white"
+            android:gravity="start"
+            android:hint="¿Qué estás pensando?"
+            android:padding="20dp"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            tools:ignore="HardcodedText" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -11,5 +11,7 @@
         <item>Producto regular, esperaba algo mejor.</item>
         <item>No me gustó, no lo recomendaría.</item>
     </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>
