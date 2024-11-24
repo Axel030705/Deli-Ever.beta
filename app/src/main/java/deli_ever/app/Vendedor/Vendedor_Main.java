@@ -51,9 +51,9 @@ public class Vendedor_Main extends AppCompatActivity {
                 } else if (itemId == R.id.menu_pedidos) {
                     transactionDP.replace(R.id.contentFragments_tiendas, fragmentPedidosV).commit();
                     return true;
-                } else if (itemId == R.id.menu_red) {
-                    transactionDP.replace(R.id.contentFragments_tiendas, fragmentRedV).commit();
-                    return true;
+//                } else if (itemId == R.id.menu_red) {
+//                    transactionDP.replace(R.id.contentFragments_tiendas, fragmentRedV).commit();
+//                    return true;
                 } else if (itemId == R.id.menu_perfil) {
                     transactionDP.replace(R.id.contentFragments_tiendas, fragmentPerfilV).commit();
                     return true;

@@ -50,10 +50,10 @@ public class Tiendas_Activity extends AppCompatActivity {
                 } else if (itemId == R.id.menu_pedidos) {
                     transactionDP.replace(R.id.contentFragments_tiendas, fragmentPedidos).commit();
                     return true;
-                } else if (itemId == R.id.menu_red) {
-                    transactionDP.replace(R.id.contentFragments_tiendas, fragmentRed).commit();
-                    return true;
-
+//                } else if (itemId == R.id.menu_red) {
+//                    transactionDP.replace(R.id.contentFragments_tiendas, fragmentRed).commit();
+//                    return true;
+//
                 } else if (itemId == R.id.menu_perfil) {
                     transactionDP.replace(R.id.contentFragments_tiendas, fragmentPerfil).commit();
                     return true;
