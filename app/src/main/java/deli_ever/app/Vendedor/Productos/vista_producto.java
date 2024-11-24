@@ -188,6 +188,7 @@ public class vista_producto extends AppCompatActivity {
         productoRef.removeValue().addOnSuccessListener(aVoid -> {
             // Producto eliminado con éxito de la base de datos
             mostrarMensaje("El producto se ha eliminado con éxito.");
+            finish();
         }).addOnFailureListener(e -> {
             // Manejar errores si no se pudo eliminar el producto de la base de datos
             mostrarMensaje("Error al eliminar el producto. Inténtalo de nuevo.");
