@@ -3,11 +3,11 @@
   <component name="deploymentTargetSelector">
     <selectionStates>
       <SelectionState runConfigName="app">
-        <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2024-11-24T04:37:15.364435300Z">
+        <option name="selectionMode" value="DIALOG" />
+        <DropdownSelection timestamp="2024-11-24T04:56:48.791829Z">
           <Target type="DEFAULT_BOOT">
             <handle>
-              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Axel\.android\avd\Pixel_3_XL_API_30.avd" />
+              <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Axel\.android\avd\Vendedor.avd" />
             </handle>
           </Target>
         </DropdownSelection>
@@ -15,12 +15,12 @@
           <targets>
             <Target type="DEFAULT_BOOT">
               <handle>
-                <DeviceId pluginId="PhysicalDevice" identifier="serial=ARGKUT3223000556" />
+                <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Axel\.android\avd\Vendedor.avd" />
               </handle>
             </Target>
             <Target type="DEFAULT_BOOT">
               <handle>
-                <DeviceId pluginId="PhysicalDevice" identifier="serial=RF8N71R3VKK" />
+                <DeviceId pluginId="LocalEmulator" identifier="path=C:\Users\Axel\.android\avd\Pixel_3_XL_API_30.avd" />
               </handle>
             </Target>
           </targets>
