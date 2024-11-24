@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_inicio"
+        android:icon="@drawable/casa"
+        android:title="Inicio"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/menu_pedidos"
+        android:icon="@drawable/pedidos"
+        android:title="Pedidos"
+        tools:ignore="HardcodedText" />
+
+    <!-- <item
+        android:id="@+id/menu_red"
+        android:icon="@drawable/red_social"
+        android:title="Red Social"
+        tools:ignore="HardcodedText" /> -->
+
+
+    <item
+        android:id="@+id/menu_informes"
+        android:icon="@drawable/informe"
+        android:title="Informes"
+        tools:ignore="HardcodedText" />
+
+    <item
+        android:id="@+id/menu_perfil"
+        android:icon="@drawable/usuario"
+        android:title="Mi perfil"
+        tools:ignore="HardcodedText" />
+
+</menu>

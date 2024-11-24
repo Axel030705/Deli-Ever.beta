@@ -16,7 +16,7 @@ import deli_ever.app.Todos.Perfil.FragmentPerfil;
 public class Vendedor_Main extends AppCompatActivity {
 
     FragmentTransaction transactionDP;
-    Fragment fragmentInicioV, fragmentPedidosV, fragmentPerfilV, fragmentRedV;
+    Fragment fragmentInicioV, fragmentPedidosV, fragmentPerfilV, fragmentRedV, fragmentInformesV;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +28,7 @@ public class Vendedor_Main extends AppCompatActivity {
         fragmentPedidosV = new FragmentPedidosV();
         fragmentRedV = new Fragment_Red_Social_Main();
         fragmentPerfilV = new FragmentPerfil();
+        fragmentInformesV = new FragmentInformesV();
 
         //Fragment Inicio
         getSupportFragmentManager().beginTransaction().add(R.id.contentFragments_tiendas, fragmentInicioV).commit();
@@ -48,13 +49,20 @@ public class Vendedor_Main extends AppCompatActivity {
                 if (itemId == R.id.menu_inicio) {
                     transactionDP.replace(R.id.contentFragments_tiendas, fragmentInicioV).commit();
                     return true;
+
                 } else if (itemId == R.id.menu_pedidos) {
                     transactionDP.replace(R.id.contentFragments_tiendas, fragmentPedidosV).commit();
                     return true;
+
 //                } else if (itemId == R.id.menu_red) {
 //                    transactionDP.replace(R.id.contentFragments_tiendas, fragmentRedV).commit();
 //                    return true;
-                } else if (itemId == R.id.menu_perfil) {
+
+                } else if (itemId == R.id.menu_informes) {
+                    transactionDP.replace(R.id.contentFragments_tiendas, fragmentInformesV).commit();
+                    return true;
+
+                }else if (itemId == R.id.menu_perfil) {
                     transactionDP.replace(R.id.contentFragments_tiendas, fragmentPerfilV).commit();
                     return true;
                 } else {
