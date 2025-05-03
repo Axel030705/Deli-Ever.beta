@@ -121,22 +121,25 @@ public class FragmentPedidos extends Fragment {
         Btn_menu_pedidos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Creamos el objeto PupupMenu
+                // Creamos el objeto PopupMenu
                 PopupMenu popupMenu = new PopupMenu(requireActivity(), view);
-                //Infla el menu desde el archivo XML
-                popupMenu.getMenuInflater().inflate(R.menu.menu_opt_pedidos, popupMenu.getMenu());
-                //Configura el listener para manejar las opciones del menu
+                // Inflar el menú desde el archivo XML
+                popupMenu.getMenuInflater().inflate(R.menu.menu_filtro_tienda, popupMenu.getMenu());
+                // Configura el listener para manejar las opciones del menú
                 popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @SuppressLint("NotifyDataSetChanged")
                     @Override
                     public boolean onMenuItemClick(MenuItem menuItem) {
-
                         int itemId = menuItem.getItemId();
 
                         if (itemId == R.id.opcion1_pedidos) {
-                            // Acción para la opción 1
+                            // Acción para la opción 1 (Ver pedidos finalizados)
                             Intent i = new Intent(requireActivity(), pedidos_finalizados.class);
                             startActivity(i);
+                            return true;
+                        } else if (itemId == R.id.filtrar_pedidos_tienda) {
+                            // Filtro de pedidos por tienda
+                            filtrarPedidosPorTienda();
                             return true;
                         } else {
                             // Otros casos si es necesario
@@ -144,7 +147,7 @@ public class FragmentPedidos extends Fragment {
                         }
                     }
                 });
-                //Muestra el PupupMenu
+                // Muestra el PopupMenu
                 popupMenu.show();
             }
         });
@@ -352,5 +355,63 @@ public class FragmentPedidos extends Fragment {
             }
         });
 
+    }
+
+    private void filtrarPedidosPorTienda() {
+        // Suponiendo que tienes una referencia al ID de la tienda seleccionada
+        String idTiendaSeleccionada = "idTienda"; // Aquí deberías obtener el ID de la tienda seleccionada por el usuario
+
+        // Filtra los pedidos que pertenecen a esa tienda
+        DatabaseReference pedidosRef = FirebaseDatabase.getInstance().getReference("Tienda")
+                .child(idTiendaSeleccionada)
+                .child("Pedidos");
+
+        pedidosRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                listaPedidosVendedor.clear(); // Limpiar la lista antes de agregar los nuevos pedidos
+
+                for (DataSnapshot pedidoSnapshot : snapshot.getChildren()) {
+                    String estado = pedidoSnapshot.child("estado").getValue(String.class);
+
+                    // Verificar si el estado no es "Finalizado"
+                    if (!"Finalizado".equals(estado)) {
+                        // Agregar el pedido a la lista
+                        PedidoClase pedido = new PedidoClase();
+                        pedido.setProducto(pedidoSnapshot.child("producto").getValue(String.class));
+                        pedido.setCantidad(pedidoSnapshot.child("cantidad").getValue(String.class));
+                        pedido.setMontoSinDescuento(pedidoSnapshot.child("montoSinDescuento").getValue(String.class));
+                        pedido.setEstado(estado);
+                        pedido.setImgProducto(pedidoSnapshot.child("imgProducto").getValue(String.class));
+                        pedido.setIdPedido(pedidoSnapshot.child("idPedido").getValue(String.class));
+                        pedido.setIdCliente(pedidoSnapshot.child("idCliente").getValue(String.class));
+                        pedido.setIdTienda(pedidoSnapshot.child("idTienda").getValue(String.class));
+                        pedido.setDireccion(pedidoSnapshot.child("direccion").getValue(String.class));
+                        pedido.setFecha_Hora(pedidoSnapshot.child("fecha_hora").getValue(String.class));
+                        pedido.setNombre_Cliente(pedidoSnapshot.child("nombre_Cliente").getValue(String.class));
+                        pedido.setDescuento(pedidoSnapshot.child("descuento").getValue(String.class));
+                        pedido.setMontoConDescuento(pedidoSnapshot.child("montoConDescuento").getValue(String.class));
+                        pedido.setIdVendedor(pedidoSnapshot.child("idVendedor").getValue(String.class));
+                        pedido.setTelefono_Cliente(pedidoSnapshot.child("telefono_Cliente").getValue(String.class));
+
+                        listaPedidosVendedor.add(pedido); // Agregar a la lista
+                    }
+                }
+
+                // Notificar al adaptador que los datos han cambiado
+                final Activity activity = requireActivity();
+                activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        pedidoAdapterVendedor.notifyDataSetChanged();
+                    }
+                });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Manejo de error
+            }
+        });
     }
 }

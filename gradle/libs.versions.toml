@@ -1,5 +1,5 @@
 [versions]
-agp = "8.5.2"
+agp = "8.8.2"
 androidGifDrawable = "1.2.25"
 androidMapsUtils = "2.2.3"
 cardview = "1.0.0"

@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/opcion1_pedidos"
+        android:title="Ver pedidos finalizados" />
+
+    <!-- Agregar una nueva opción para filtrar pedidos por tienda -->
+    <item
+        android:id="@+id/filtrar_pedidos_tienda"
+        android:title="Filtrar por tienda" />
+</menu>
